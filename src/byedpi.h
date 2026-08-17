@@ -2,8 +2,8 @@
 /*
  * byedpi.h - Shared configuration, logging and engine interface.
  *
- * ByeDPI - A Linux DPI circumvention tool (a GoodbyeDPI equivalent).
- * Copyright 2026 The ByeDPI Authors.
+ * Passewall - A Linux DPI circumvention tool (a GoodbyeDPI equivalent).
+ * Copyright 2026 The Passewall Authors.
  */
 
 #ifndef BYEDPI_H
@@ -13,8 +13,8 @@
 #include <stdint.h>
 #include <pthread.h>
 
-#define BYEDPI_APP_ID     "io.github.byedpi.ByeDPI"
-#define BYEDPI_APP_NAME   "ByeDPI"
+#define BYEDPI_APP_ID     "io.github.taigalinux.Passewall"
+#define BYEDPI_APP_NAME   "Passewall"
 #define BYEDPI_VERSION    "0.1.0"
 #define BYEDPI_QUEUE_NUM  100
 

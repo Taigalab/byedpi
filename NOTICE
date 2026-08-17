@@ -1,7 +1,7 @@
-ByeDPI
-Copyright 2026 The ByeDPI Authors
+Passewall
+Copyright 2026 The Passewall Authors
 
-This product includes software developed by The ByeDPI Authors.
+This product includes software developed by The Passewall Authors.
 
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
 this software except in compliance with the License. You may obtain a copy of
@@ -13,9 +13,9 @@ the License in the accompanying LICENSE file or at:
 Third-party dependencies
 ================================================================================
 
-ByeDPI links against, or is built with, the following third-party libraries.
+Passewall links against, or is built with, the following third-party libraries.
 Each remains under its own license; those licenses govern the corresponding
-library, not ByeDPI's own source code.
+library, not Passewall's own source code.
 
 --------------------------------------------------------------------------------
 libnetfilter_queue
@@ -44,9 +44,9 @@ libayatana-appindicator
     Homepage: https://github.com/AyatanaIndicators/libayatana-appindicator
     License:  GNU Lesser General Public License, version 2.1 or later
               (LGPL-2.1-or-later)
-    Note:     ByeDPI implements the StatusNotifierItem tray protocol directly
+    Note:     Passewall implements the StatusNotifierItem tray protocol directly
               over GDBus and does not link this library at build time; it is
-              listed here because ByeDPI targets the same freedesktop tray
+              listed here because Passewall targets the same freedesktop tray
               specification that libayatana-appindicator implements, and some
               desktop environments rely on it (or a compatible host) to display
               the tray icon.
@@ -64,10 +64,10 @@ Compliance note
 ================================================================================
 
 Because libnetfilter_queue (and libnfnetlink) are distributed under the GPLv2,
-any binary distribution of ByeDPI that links these libraries constitutes a
+any binary distribution of Passewall that links these libraries constitutes a
 combined work whose distribution terms must be compatible with the GPLv2. The
-Apache-2.0 license of ByeDPI's own source is compatible with GPLv3 but NOT with
-GPLv2. If you redistribute pre-built ByeDPI binaries linked against these GPLv2
+Apache-2.0 license of Passewall's own source is compatible with GPLv3 but NOT with
+GPLv2. If you redistribute pre-built Passewall binaries linked against these GPLv2
 libraries, seek legal review or link against a GPLv2-compatible alternative.
-Distributing ByeDPI's Apache-2.0 source code alongside these libraries as
+Distributing Passewall's Apache-2.0 source code alongside these libraries as
 separate components is not affected by this note.

@@ -2,7 +2,7 @@
 # SPDX-License-Identifier: Apache-2.0
 #
 # install.sh - Detect the distribution's package manager, install every build
-# and runtime dependency, then build and (optionally) install ByeDPI.
+# and runtime dependency, then build and (optionally) install Passewall.
 #
 # Usage:
 #   ./install.sh            # install deps, build, and `meson install`
@@ -116,11 +116,11 @@ main() {
     if $DO_INSTALL; then
         log "Installing system-wide"
         as_root ninja -C build install
-        log "Done. Launch the GUI with:  sudo byedpi"
-        log "Or run headless with:        sudo byedpi --no-gui"
+        log "Done. Launch the GUI with:  sudo passewall"
+        log "Or run headless with:        sudo passewall --no-gui"
     else
-        log "Build complete: ./build/byedpi"
-        log "Run it with:    sudo ./build/byedpi"
+        log "Build complete: ./build/passewall"
+        log "Run it with:    sudo ./build/passewall"
     fi
 }
 

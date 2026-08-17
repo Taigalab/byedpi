@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: Apache-2.0
-project('byedpi', 'c',
+project('passewall', 'c',
   version : '0.1.0',
   license : 'Apache-2.0',
   meson_version : '>= 0.59.0',
@@ -56,10 +56,10 @@ if build_gui
   # available by icon name (github-symbolic / discord-symbolic) at runtime.
   gnome = import('gnome')
   gui_resources = gnome.compile_resources(
-    'byedpi-resources',
-    'data/byedpi.gresource.xml',
+    'passewall-resources',
+    'data/passewall.gresource.xml',
     source_dir : 'data/icons',
-    c_name : 'byedpi',
+    c_name : 'passewall',
   )
 
   message('GUI enabled (GTK4 + libadwaita)')
@@ -69,7 +69,7 @@ endif
 
 inc = include_directories('src')
 
-executable('byedpi',
+executable('passewall',
   core_sources + gui_sources + gui_resources,
   dependencies : deps,
   c_args : c_args,
@@ -80,15 +80,15 @@ executable('byedpi',
 # ---- data ------------------------------------------------------------------
 datadir = get_option('datadir')
 
-install_data('data/io.github.byedpi.ByeDPI.desktop',
+install_data('data/io.github.taigalinux.Passewall.desktop',
   install_dir : join_paths(datadir, 'applications'))
 
-install_data('data/io.github.byedpi.ByeDPI.metainfo.xml',
+install_data('data/io.github.taigalinux.Passewall.metainfo.xml',
   install_dir : join_paths(datadir, 'metainfo'))
 
-install_data('assets/byedpi.svg',
+install_data('assets/passewall.svg',
   install_dir : join_paths(datadir, 'icons/hicolor/scalable/apps'),
-  rename : 'io.github.byedpi.ByeDPI.svg')
+  rename : 'io.github.taigalinux.Passewall.svg')
 
 meson.add_install_script('sh', '-c',
-  'echo "ByeDPI installed. Run as root: sudo byedpi (GUI) or sudo byedpi --no-gui"')
+  'echo "Passewall installed. Run as root: sudo passewall (GUI) or sudo passewall --no-gui"')

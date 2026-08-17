@@ -1,6 +1,6 @@
 # Changelog
 
-All notable changes to ByeDPI are documented in this file.
+All notable changes to Passewall are documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
@@ -42,10 +42,10 @@ Initial release.
 - **CLI modes**: full GUI (default), `--no-gui` (headless), and `--tray`
   (tray only). Flags: `--dns-addr`, `--ttl`, `--no-ipv6`, `--verbose`.
 - **Autostart** management writing/removing
-  `~/.config/autostart/io.github.byedpi.ByeDPI.desktop`, honoring the
+  `~/.config/autostart/io.github.taigalinux.Passewall.desktop`, honoring the
   "start minimized to tray" preference.
 - **Distribution**: Meson build system, a Makefile wrapper, an `install.sh`
   that auto-detects apt/pacman/dnf/zypper, a Flatpak manifest, a `.desktop`
   entry, and AppStream metainfo.
 
-[0.1.0]: https://github.com/TaigaLinux/byedpi/releases/tag/v0.1.0
+[0.1.0]: https://github.com/TaigaLinux/passewall/releases/tag/v0.1.0

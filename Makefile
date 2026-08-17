@@ -33,11 +33,11 @@ release:
 
 ## run: build and launch the GUI (needs root for the packet engine)
 run: build
-	sudo $(BUILDDIR)/byedpi
+	sudo $(BUILDDIR)/passewall
 
 ## run-cli: build and launch headless
 run-cli: build
-	sudo $(BUILDDIR)/byedpi --no-gui --verbose
+	sudo $(BUILDDIR)/passewall --no-gui --verbose
 
 ## install: install system-wide (uses sudo)
 install: build

@@ -20,7 +20,7 @@
 #include <sys/types.h>
 #include <unistd.h>
 
-#define BD_URL_GITHUB  "https://github.com/TaigaLinux/byedpi"
+#define BD_URL_GITHUB  "https://github.com/TaigaLinux/passewall"
 #define BD_URL_DISCORD "https://discord.gg/ABNRndZhcF"
 
 typedef struct {
@@ -143,7 +143,7 @@ static void on_main_toggled(GObject *obj, GParamSpec *ps, gpointer user)
 
     if (want) {
         if (bd_engine_start(a->engine) != 0) {
-            show_toast(a, "Failed to start - check that ByeDPI runs as root");
+            show_toast(a, "Failed to start - check that Passewall runs as root");
             set_main_switch(a, FALSE);
             set_status_ui(a, FALSE);
             return;
@@ -216,7 +216,7 @@ static gboolean tcp_head_ok(const char *host)
 
             char req[512];
             int n = snprintf(req, sizeof(req),
-                "HEAD / HTTP/1.1\r\nHost: %s\r\nUser-Agent: ByeDPI-Test\r\n"
+                "HEAD / HTTP/1.1\r\nHost: %s\r\nUser-Agent: Passewall-Test\r\n"
                 "Connection: close\r\n\r\n", host);
             ssize_t sent = 0;
             while (sent < n) {
@@ -525,7 +525,7 @@ static void act_about(GSimpleAction *ac, GVariant *p, gpointer user)
         "application-name", BYEDPI_APP_NAME,
         "application-icon", BYEDPI_APP_ID,
         "version", BYEDPI_VERSION,
-        "developer-name", "The ByeDPI Authors",
+        "developer-name", "The Passewall Authors",
         "license-type", GTK_LICENSE_APACHE_2_0,
         "website", BD_URL_GITHUB,
         "issue-url", BD_URL_GITHUB "/issues",
@@ -541,7 +541,7 @@ static void act_about(GSimpleAction *ac, GVariant *p, gpointer user)
         "application-name", BYEDPI_APP_NAME,
         "application-icon", BYEDPI_APP_ID,
         "version", BYEDPI_VERSION,
-        "developer-name", "The ByeDPI Authors",
+        "developer-name", "The Passewall Authors",
         "license-type", GTK_LICENSE_APACHE_2_0,
         "website", BD_URL_GITHUB,
         "issue-url", BD_URL_GITHUB "/issues",
@@ -742,7 +742,7 @@ static GtkWidget *build_network_group(App *a)
     adw_preferences_group_add(ADW_PREFERENCES_GROUP(group), a->sw_autostart);
 
     a->sw_closetray = make_switch_row("Close to tray",
-                                      "Closing the window keeps ByeDPI in the tray",
+                                      "Closing the window keeps Passewall in the tray",
                                       a->close_to_tray);
     g_signal_connect(a->sw_closetray, "notify::active",
                      G_CALLBACK(on_closetray_toggled), a);
@@ -829,7 +829,7 @@ static void build_actions(App *a)
 static GtkWidget *build_menu_button(void)
 {
     GMenu *menu = g_menu_new();
-    g_menu_append(menu, "About ByeDPI", "app.about");
+    g_menu_append(menu, "About Passewall", "app.about");
     g_menu_append(menu, "Quit", "app.quit");
 
     GtkWidget *btn = gtk_menu_button_new();
@@ -875,7 +875,7 @@ static void build_window(App *a)
 
     /* First-run notice when not running as root. */
     a->banner = adw_banner_new(
-        "ByeDPI needs root to manage firewall rules. Run with sudo.");
+        "Passewall needs root to manage firewall rules. Run with sudo.");
     adw_banner_set_button_label(ADW_BANNER(a->banner), "Dismiss");
     g_signal_connect(a->banner, "button-clicked",
                      G_CALLBACK(on_banner_dismiss), a);
@@ -913,7 +913,7 @@ static void on_activate(GtkApplication *app, gpointer user)
          * by name (they are embedded via GResource). */
         gtk_icon_theme_add_resource_path(
             gtk_icon_theme_get_for_display(gdk_display_get_default()),
-            "/io/github/byedpi/ByeDPI/icons");
+            "/io/github/taigalinux/Passewall/icons");
         build_actions(a);
         build_window(a);
 

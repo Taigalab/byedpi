@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: Apache-2.0
 /*
- * queue.c - The ByeDPI engine. Owns the netfilter queue, the raw injection
+ * queue.c - The Passewall engine. Owns the netfilter queue, the raw injection
  * sockets, the firewall rules and the receive thread, and dispatches each
  * intercepted packet to the appropriate DPI-evasion handler.
  */

@@ -1,6 +1,6 @@
 <div align="center">
 
-# ByeDPI
+# Passewall
 
 **A Linux tool for bypassing deep packet inspection — a GoodbyeDPI equivalent.**
 
@@ -10,7 +10,7 @@
 [![Platform: Linux](https://img.shields.io/badge/Platform-amd64%20%7C%20arm64-333.svg)](#)
 [![Discord](https://img.shields.io/badge/Discord-Join-5865F2.svg?logo=discord&logoColor=white)](https://discord.gg/ABNRndZhcF)
 
-[GitHub](https://github.com/TaigaLinux/byedpi) · [Discord](https://discord.gg/ABNRndZhcF)
+[GitHub](https://github.com/TaigaLinux/passewall) · [Discord](https://discord.gg/ABNRndZhcF)
 
 </div>
 
@@ -18,7 +18,7 @@
 
 ## What it is
 
-**ByeDPI** intercepts your own outgoing traffic with the Linux netfilter
+**Passewall** intercepts your own outgoing traffic with the Linux netfilter
 subsystem and rewrites it just enough that censorship middleboxes — the "deep
 packet inspection" (DPI) boxes some ISPs and networks use to detect and block
 connections — fail to classify it, while the destination server still receives a
@@ -32,13 +32,13 @@ clean GTK4 / libadwaita interface and a system tray.
 
 GoodbyeDPI showed that a handful of low-level packet tricks are enough to defeat
 a lot of real-world DPI censorship without any remote proxy or VPN. On Windows it
-uses WinDivert; on Linux the equivalent building block is NFQUEUE. ByeDPI packages
+uses WinDivert; on Linux the equivalent building block is NFQUEUE. Passewall packages
 those techniques into a single, native, installable Linux application with both a
 GUI and a headless mode.
 
 ### How it works
 
-When enabled, ByeDPI applies the combined technique set (equivalent to GoodbyeDPI's
+When enabled, Passewall applies the combined technique set (equivalent to GoodbyeDPI's
 `-5` mode):
 
 | Technique | What it does |
@@ -50,11 +50,11 @@ When enabled, ByeDPI applies the combined technique set (equivalent to GoodbyeDP
 | **DNS interception** | Captures outbound UDP/53 queries and forwards them to a resolver you choose (Cloudflare/Google/custom), with a fallback. |
 | **QUIC / HTTP3 awareness** | Optionally drops QUIC Initial packets on UDP/443 so browsers fall back to TLS-over-TCP, which the TCP path defeats. |
 
-Injected packets carry a firewall mark and are skipped by the queue, so ByeDPI
+Injected packets carry a firewall mark and are skipped by the queue, so Passewall
 never re-processes its own traffic.
 
 > **Note**
-> ByeDPI is a censorship-circumvention and network-research tool. It is **not** a
+> Passewall is a censorship-circumvention and network-research tool. It is **not** a
 > VPN and does **not** encrypt or anonymize your traffic. Use it in accordance
 > with your local laws.
 
@@ -62,7 +62,7 @@ never re-processes its own traffic.
 
 ## Supported distributions
 
-ByeDPI is pure C with no architecture-specific code and targets **amd64** and
+Passewall is pure C with no architecture-specific code and targets **amd64** and
 **arm64**. It is regularly built on:
 
 - **Debian / Ubuntu** and derivatives (apt)
@@ -79,13 +79,13 @@ Any distribution with a Linux kernel that has `nfnetlink_queue`, plus
 
 ### Flatpak
 
-> 🚧 **Flathub submission coming soon.** ByeDPI is not on Flathub yet, so there
+> 🚧 **Flathub submission coming soon.** Passewall is not on Flathub yet, so there
 > is no `flatpak install` command to run right now. In the meantime, install
 > [from source](#one-line-source-install) (below).
 >
-> A [Flatpak manifest](flatpak/io.github.byedpi.ByeDPI.yml) is included for local
+> A [Flatpak manifest](flatpak/io.github.taigalinux.Passewall.yml) is included for local
 > builds. Note that the Flatpak sandbox cannot be granted the `CAP_NET_ADMIN` /
-> `CAP_NET_RAW` capabilities ByeDPI needs to filter traffic, so the Flatpak is
+> `CAP_NET_RAW` capabilities Passewall needs to filter traffic, so the Flatpak is
 > primarily for the GUI and development — for full functionality, install from
 > source and run with privileges.
 
@@ -95,15 +95,15 @@ The bundled installer detects your package manager, installs every dependency,
 builds, and installs system-wide:
 
 ```bash
-git clone https://github.com/TaigaLinux/byedpi.git
-cd byedpi
+git clone https://github.com/TaigaLinux/passewall.git
+cd passewall
 ./install.sh
 ```
 
 Then launch it:
 
 ```bash
-sudo byedpi
+sudo passewall
 ```
 
 ---
@@ -163,13 +163,13 @@ ninja -C build
 
 ## Usage
 
-ByeDPI must run as **root** (or with `CAP_NET_ADMIN` + `CAP_NET_RAW`) because it
+Passewall must run as **root** (or with `CAP_NET_ADMIN` + `CAP_NET_RAW`) because it
 programs `iptables` and injects raw packets.
 
 ```bash
-sudo byedpi                 # launch the full GUI
-sudo byedpi --no-gui        # headless: apply the bypass, no window
-sudo byedpi --tray          # start in the system tray only
+sudo passewall                 # launch the full GUI
+sudo passewall --no-gui        # headless: apply the bypass, no window
+sudo passewall --tray          # start in the system tray only
 ```
 
 ### CLI flags
@@ -188,7 +188,7 @@ sudo byedpi --tray          # start in the system tray only
 Example — headless, custom resolver, aggressive TTL, IPv4 only:
 
 ```bash
-sudo byedpi --no-gui --dns-addr 9.9.9.9 --ttl 3 --no-ipv6 --verbose
+sudo passewall --no-gui --dns-addr 9.9.9.9 --ttl 3 --no-ipv6 --verbose
 ```
 
 Stop a headless instance with `Ctrl-C`; it removes exactly the firewall rules it
@@ -212,7 +212,7 @@ added.
 
 <table>
 <tr>
-<td width="300"><img src="data/screenshots/main.png" width="280" alt="ByeDPI main window"></td>
+<td width="300"><img src="data/screenshots/main.png" width="280" alt="Passewall main window"></td>
 <td valign="top">
 
 The main window keeps the important controls up front:
@@ -236,11 +236,11 @@ Built with GTK4 + libadwaita, so it follows your system light/dark theme.
 The "Run on login" toggle writes or removes:
 
 ```
-~/.config/autostart/io.github.byedpi.ByeDPI.desktop
+~/.config/autostart/io.github.taigalinux.Passewall.desktop
 ```
 
 When "Start minimized to tray" is also enabled, the autostart entry's `Exec`
-line passes `--tray` so ByeDPI launches quietly into the tray at login.
+line passes `--tray` so Passewall launches quietly into the tray at login.
 
 ---
 
@@ -249,7 +249,7 @@ line passes `--tray` so ByeDPI launches quietly into the tray at login.
 - 💬 **Discord** — questions, help, and technique discussion:
   [discord.gg/ABNRndZhcF](https://discord.gg/ABNRndZhcF)
 - 🐙 **GitHub** — source, issues, and releases:
-  [github.com/TaigaLinux/byedpi](https://github.com/TaigaLinux/byedpi)
+  [github.com/TaigaLinux/passewall](https://github.com/TaigaLinux/passewall)
 
 ---
 
@@ -269,7 +269,7 @@ Contributions are welcome!
    it addresses.
 
 Bug reports and technique ideas are equally valuable — please
-[open an issue](https://github.com/TaigaLinux/byedpi/issues) with enough detail to
+[open an issue](https://github.com/TaigaLinux/passewall/issues) with enough detail to
 reproduce (distro, kernel, the site or protocol, and a `--verbose` log), or drop
 into the [Discord](https://discord.gg/ABNRndZhcF) to chat.
 
@@ -277,7 +277,7 @@ into the [Discord](https://discord.gg/ABNRndZhcF) to chat.
 
 ## License
 
-ByeDPI is licensed under the **Apache License 2.0** — see [LICENSE](LICENSE).
+Passewall is licensed under the **Apache License 2.0** — see [LICENSE](LICENSE).
 
 Third-party dependencies retain their own licenses (libnetfilter_queue is GPLv2;
 GTK4, libadwaita and libayatana-appindicator are LGPLv2.1). See [NOTICE](NOTICE)
@@ -285,5 +285,5 @@ for details and an important note on GPLv2 compliance when redistributing
 pre-built binaries.
 
 <div align="center">
-<sub>Made for a freer internet. ByeDPI does not encrypt traffic and is not a VPN.</sub>
+<sub>Made for a freer internet. Passewall does not encrypt traffic and is not a VPN.</sub>
 </div>

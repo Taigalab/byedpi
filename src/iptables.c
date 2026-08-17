@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: Apache-2.0
 /*
  * iptables.c - Install/remove the NFQUEUE rules that hand outbound traffic to
- * ByeDPI, plus detection of conflicting services (ufw, firewalld,
+ * Passewall, plus detection of conflicting services (ufw, firewalld,
  * systemd-resolved).
  */
 

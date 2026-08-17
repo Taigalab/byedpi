@@ -55,7 +55,7 @@ static void usage(const char *argv0)
 "  -h, --help         show this help and exit\n"
 "  -V, --version      show version and exit\n"
 "\n"
-"ByeDPI must run as root (or with CAP_NET_ADMIN + CAP_NET_RAW) because it\n"
+"Passewall must run as root (or with CAP_NET_ADMIN + CAP_NET_RAW) because it\n"
 "programs iptables and injects raw packets.\n",
         BYEDPI_APP_NAME, BYEDPI_VERSION, argv0);
 }
@@ -104,7 +104,7 @@ static int parse_args(int argc, char **argv, bd_config *cfg)
     return 0;
 }
 
-/* Warn about conditions that affect ByeDPI before we touch the firewall. */
+/* Warn about conditions that affect Passewall before we touch the firewall. */
 static void preflight(bd_config *cfg)
 {
     if (geteuid() != 0)
@@ -113,10 +113,10 @@ static void preflight(bd_config *cfg)
 
     if (bd_service_active("ufw"))
         BD_WARN("ufw is active: it may reorder or flush the OUTPUT chain and "
-                "interfere with ByeDPI's NFQUEUE rules");
+                "interfere with Passewall's NFQUEUE rules");
     if (bd_service_active("firewalld"))
         BD_WARN("firewalld is active: it may reorder or flush the OUTPUT chain "
-                "and interfere with ByeDPI's NFQUEUE rules");
+                "and interfere with Passewall's NFQUEUE rules");
 
     cfg->resolved_active = bd_systemd_resolved_active();
     if (cfg->resolved_active)

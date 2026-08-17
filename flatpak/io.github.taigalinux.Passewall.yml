@@ -1,8 +1,8 @@
 # SPDX-License-Identifier: Apache-2.0
 #
-# Flatpak manifest for ByeDPI.
+# Flatpak manifest for Passewall.
 #
-# NOTE ON PRIVILEGES: ByeDPI programs iptables and opens raw/NFQUEUE sockets,
+# NOTE ON PRIVILEGES: Passewall programs iptables and opens raw/NFQUEUE sockets,
 # which require CAP_NET_ADMIN and CAP_NET_RAW. The Flatpak sandbox cannot grant
 # Linux capabilities, so the Flatpak build is intended for development and for
 # the GUI itself; to actually filter traffic, run the packaged binary with
@@ -10,11 +10,11 @@
 # `sudo`). The manifest below builds a complete, self-contained bundle and
 # wires up network access and the tray.
 
-app-id: io.github.byedpi.ByeDPI
+app-id: io.github.taigalinux.Passewall
 runtime: org.gnome.Platform
 runtime-version: '46'
 sdk: org.gnome.Sdk
-command: byedpi
+command: passewall
 
 finish-args:
   # Networking is the whole point of the app.
@@ -62,7 +62,7 @@ modules:
         url: https://git.netfilter.org/libnetfilter_queue
         tag: libnetfilter_queue-1.0.5
 
-  - name: byedpi
+  - name: passewall
     buildsystem: meson
     config-opts:
       - -Dgui=true

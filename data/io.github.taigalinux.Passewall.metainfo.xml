@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- SPDX-License-Identifier: Apache-2.0 -->
 <component type="desktop-application">
-  <id>io.github.byedpi.ByeDPI</id>
+  <id>io.github.taigalinux.Passewall</id>
 
-  <name>ByeDPI</name>
+  <name>Passewall</name>
   <summary>Bypass deep packet inspection and censorship</summary>
 
   <metadata_license>CC0-1.0</metadata_license>
   <project_license>Apache-2.0</project_license>
 
-  <developer id="io.github.byedpi">
-    <name>The ByeDPI Authors</name>
+  <developer id="io.github.taigalinux">
+    <name>The Passewall Authors</name>
   </developer>
 
   <description>
     <p>
-      ByeDPI is a Linux tool for circumventing deep packet inspection (DPI)
+      Passewall is a Linux tool for circumventing deep packet inspection (DPI)
       based censorship, in the spirit of GoodbyeDPI for Windows. It intercepts
       your outgoing traffic with netfilter and applies a set of well-known
       evasion techniques so that filtering middleboxes fail to recognise and
@@ -38,11 +38,11 @@
     </p>
   </description>
 
-  <launchable type="desktop-id">io.github.byedpi.ByeDPI.desktop</launchable>
+  <launchable type="desktop-id">io.github.taigalinux.Passewall.desktop</launchable>
 
-  <url type="homepage">https://github.com/TaigaLinux/byedpi</url>
-  <url type="bugtracker">https://github.com/TaigaLinux/byedpi/issues</url>
-  <url type="vcs-browser">https://github.com/TaigaLinux/byedpi</url>
+  <url type="homepage">https://github.com/TaigaLinux/passewall</url>
+  <url type="bugtracker">https://github.com/TaigaLinux/passewall/issues</url>
+  <url type="vcs-browser">https://github.com/TaigaLinux/passewall</url>
   <url type="contact">https://discord.gg/ABNRndZhcF</url>
 
   <categories>
@@ -52,8 +52,8 @@
 
   <screenshots>
     <screenshot type="default">
-      <caption>The main ByeDPI window with the bypass toggle and techniques</caption>
-      <image>https://raw.githubusercontent.com/TaigaLinux/byedpi/main/data/screenshots/main.png</image>
+      <caption>The main Passewall window with the bypass toggle and techniques</caption>
+      <image>https://raw.githubusercontent.com/TaigaLinux/passewall/main/data/screenshots/main.png</image>
     </screenshot>
   </screenshots>
 
