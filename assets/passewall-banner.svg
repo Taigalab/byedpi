@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="760" height="200" viewBox="0 0 760 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bn-bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f1430"/>
+      <stop offset="1" stop-color="#1b2452"/>
+    </linearGradient>
+    <linearGradient id="bn-tile" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#3b2f8f"/>
+      <stop offset="1" stop-color="#2f7bf6"/>
+    </linearGradient>
+    <linearGradient id="bn-glow" x1="0" y1="1" x2="0" y2="0">
+      <stop offset="0" stop-color="#1bbf9c"/>
+      <stop offset="1" stop-color="#7ef0d4"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="760" height="200" rx="26" fill="url(#bn-bg)"/>
+
+  <!-- Portal app icon -->
+  <g transform="translate(40,36)">
+    <rect x="4" y="4" width="120" height="120" rx="27" fill="url(#bn-tile)"/>
+    <rect x="30" y="30" width="68" height="72" rx="6" fill="#ffffff"/>
+    <g stroke="#dfe6f2" stroke-width="2">
+      <path d="M30 54 H98"/>
+      <path d="M30 78 H98"/>
+      <path d="M64 30 V54"/>
+      <path d="M48 54 V78"/>
+      <path d="M80 54 V78"/>
+      <path d="M64 78 V102"/>
+    </g>
+    <path d="M52 102 V70 a12 12 0 0 1 24 0 V102 Z" fill="url(#bn-glow)"/>
+    <g stroke="#ffffff" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M64 96 V74"/>
+      <path d="M55 83 L64 73 L73 83"/>
+    </g>
+  </g>
+
+  <!-- Wordmark -->
+  <text x="196" y="104" font-family="'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif"
+        font-size="62" font-weight="800" letter-spacing="-1" fill="#ffffff">Passewall</text>
+  <!-- accent underline -->
+  <rect x="200" y="118" width="66" height="5" rx="2.5" fill="#1bbf9c"/>
+  <!-- Tagline -->
+  <text x="200" y="150" font-family="'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif"
+        font-size="21" font-weight="500" fill="#9db4e8">Pass the wall — DPI bypass for Linux</text>
+</svg>

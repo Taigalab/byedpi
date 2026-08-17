@@ -1,10 +1,10 @@
 <div align="center">
 
-<img src="assets/passewall.svg" alt="Passewall logo" width="128" height="128">
+<img src="assets/passewall-banner.svg" alt="Passewall" width="680">
 
-# Passewall
+**Bypass deep packet inspection on Linux — a GoodbyeDPI-style tool with a clean, native GTK4 app.**
 
-**A Linux tool for bypassing deep packet inspection — a GoodbyeDPI equivalent.**
+`TCP fragmentation` · `fake TTL packets` · `SNI splitting` · `DNS redirect` · `QUIC control`
 
 [![License: Apache 2.0](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](LICENSE)
 [![Language: C](https://img.shields.io/badge/Language-C-555.svg)](#)
