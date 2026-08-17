@@ -77,16 +77,17 @@ Any distribution with a Linux kernel that has `nfnetlink_queue`, plus
 
 ## Install
 
-### Flatpak (recommended once on Flathub)
+### Flatpak
 
-```bash
-flatpak install flathub io.github.byedpi.ByeDPI
-```
-
-> The Flatpak sandbox cannot be granted the `CAP_NET_ADMIN` / `CAP_NET_RAW`
-> capabilities ByeDPI needs to filter traffic, so the Flatpak is primarily for
-> the GUI and development. For full functionality, install from source and run
-> with privileges (below).
+> 🚧 **Flathub submission coming soon.** ByeDPI is not on Flathub yet, so there
+> is no `flatpak install` command to run right now. In the meantime, install
+> [from source](#one-line-source-install) (below).
+>
+> A [Flatpak manifest](flatpak/io.github.byedpi.ByeDPI.yml) is included for local
+> builds. Note that the Flatpak sandbox cannot be granted the `CAP_NET_ADMIN` /
+> `CAP_NET_RAW` capabilities ByeDPI needs to filter traffic, so the Flatpak is
+> primarily for the GUI and development — for full functionality, install from
+> source and run with privileges.
 
 ### One-line source install
 
