@@ -1,5 +1,7 @@
 <div align="center">
 
+<img src="assets/passewall.svg" alt="Passewall logo" width="128" height="128">
+
 # Passewall
 
 **A Linux tool for bypassing deep packet inspection — a GoodbyeDPI equivalent.**
@@ -285,5 +287,8 @@ for details and an important note on GPLv2 compliance when redistributing
 pre-built binaries.
 
 <div align="center">
+
+<img src="assets/passewall.svg" alt="" width="40" height="40">
+
 <sub>Made for a freer internet. Passewall does not encrypt traffic and is not a VPN.</sub>
 </div>
