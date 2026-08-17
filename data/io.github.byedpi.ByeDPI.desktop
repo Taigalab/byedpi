@@ -1,0 +1,14 @@
+[Desktop Entry]
+Type=Application
+Version=1.0
+Name=ByeDPI
+GenericName=DPI Circumvention
+Comment=Bypass deep packet inspection and network censorship
+Keywords=DPI;censorship;bypass;GoodbyeDPI;privacy;proxy;SNI;DNS;
+Exec=byedpi
+Icon=io.github.byedpi.ByeDPI
+Terminal=false
+Categories=Network;Security;
+StartupNotify=true
+StartupWMClass=io.github.byedpi.ByeDPI
+X-GNOME-UsesNotifications=true

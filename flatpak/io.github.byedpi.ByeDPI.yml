@@ -1,0 +1,71 @@
+# SPDX-License-Identifier: Apache-2.0
+#
+# Flatpak manifest for ByeDPI.
+#
+# NOTE ON PRIVILEGES: ByeDPI programs iptables and opens raw/NFQUEUE sockets,
+# which require CAP_NET_ADMIN and CAP_NET_RAW. The Flatpak sandbox cannot grant
+# Linux capabilities, so the Flatpak build is intended for development and for
+# the GUI itself; to actually filter traffic, run the packaged binary with
+# privileges (for example the system install via `meson install`, launched with
+# `sudo`). The manifest below builds a complete, self-contained bundle and
+# wires up network access and the tray.
+
+app-id: io.github.byedpi.ByeDPI
+runtime: org.gnome.Platform
+runtime-version: '46'
+sdk: org.gnome.Sdk
+command: byedpi
+
+finish-args:
+  # Networking is the whole point of the app.
+  - --share=network
+  # Display back-ends.
+  - --socket=wayland
+  - --socket=fallback-x11
+  - --share=ipc
+  - --device=dri
+  # System tray via StatusNotifierItem / DBusMenu.
+  - --talk-name=org.kde.StatusNotifierWatcher
+  - --talk-name=org.freedesktop.Notifications
+  # Autostart entry management through the background portal.
+  - --talk-name=org.freedesktop.portal.Flatpak
+  - --talk-name=org.freedesktop.Flatpak
+  # Elevated networking capabilities (honored only when the host permits them).
+  - --allow=multiarch
+
+cleanup:
+  - /include
+  - /lib/pkgconfig
+  - /share/man
+  - '*.a'
+  - '*.la'
+
+modules:
+  - name: libmnl
+    buildsystem: autotools
+    sources:
+      - type: git
+        url: https://git.netfilter.org/libmnl
+        tag: libmnl-1.0.5
+
+  - name: libnfnetlink
+    buildsystem: autotools
+    sources:
+      - type: git
+        url: https://git.netfilter.org/libnfnetlink
+        tag: libnfnetlink-1.0.2
+
+  - name: libnetfilter_queue
+    buildsystem: autotools
+    sources:
+      - type: git
+        url: https://git.netfilter.org/libnetfilter_queue
+        tag: libnetfilter_queue-1.0.5
+
+  - name: byedpi
+    buildsystem: meson
+    config-opts:
+      - -Dgui=true
+    sources:
+      - type: dir
+        path: ..

@@ -1,0 +1,22 @@
+# Build output
+/build/
+/builddir/
+*.o
+*.a
+*.so
+
+# Meson
+/subprojects/*/
+!/subprojects/*.wrap
+
+# Flatpak
+/.flatpak-builder/
+/repo/
+/flatpak-build/
+
+# Editors
+*.swp
+*~
+.vscode/
+.idea/
+compile_commands.json

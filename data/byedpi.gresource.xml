@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/io/github/byedpi/ByeDPI/icons">
+    <file>scalable/actions/github-symbolic.svg</file>
+    <file>scalable/actions/discord-symbolic.svg</file>
+  </gresource>
+</gresources>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- SPDX-License-Identifier: Apache-2.0 -->
+<component type="desktop-application">
+  <id>io.github.byedpi.ByeDPI</id>
+
+  <name>ByeDPI</name>
+  <summary>Bypass deep packet inspection and censorship</summary>
+
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>Apache-2.0</project_license>
+
+  <developer id="io.github.byedpi">
+    <name>The ByeDPI Authors</name>
+  </developer>
+
+  <description>
+    <p>
+      ByeDPI is a Linux tool for circumventing deep packet inspection (DPI)
+      based censorship, in the spirit of GoodbyeDPI for Windows. It intercepts
+      your outgoing traffic with netfilter and applies a set of well-known
+      evasion techniques so that filtering middleboxes fail to recognise and
+      block the connection, while the destination server still receives a
+      perfectly valid request.
+    </p>
+    <p>Techniques included:</p>
+    <ul>
+      <li>TCP fragmentation of the first data segment</li>
+      <li>Low-TTL fake packet injection to poison stateful DPI</li>
+      <li>HTTP Host header splitting across two segments</li>
+      <li>TLS ClientHello splitting at the SNI boundary</li>
+      <li>DNS interception and forwarding to an encrypted-friendly resolver</li>
+      <li>QUIC/HTTP3 awareness with fallback enforcement</li>
+    </ul>
+    <p>
+      A clean GTK4 and libadwaita interface lets you toggle the bypass, choose
+      a DNS resolver, tune techniques, watch a live packet log, and run from
+      the system tray. A headless mode is available for servers and scripts.
+    </p>
+  </description>
+
+  <launchable type="desktop-id">io.github.byedpi.ByeDPI.desktop</launchable>
+
+  <url type="homepage">https://github.com/TaigaLinux/byedpi</url>
+  <url type="bugtracker">https://github.com/TaigaLinux/byedpi/issues</url>
+  <url type="vcs-browser">https://github.com/TaigaLinux/byedpi</url>
+  <url type="contact">https://discord.gg/ABNRndZhcF</url>
+
+  <categories>
+    <category>Network</category>
+    <category>Security</category>
+  </categories>
+
+  <screenshots>
+    <screenshot type="default">
+      <caption>The main ByeDPI window with the bypass toggle and techniques</caption>
+      <image>https://raw.githubusercontent.com/TaigaLinux/byedpi/main/data/screenshots/main.png</image>
+    </screenshot>
+  </screenshots>
+
+  <content_rating type="oars-1.1"/>
+
+  <releases>
+    <release version="0.1.0" date="2026-08-17">
+      <description>
+        <p>Initial release.</p>
+        <ul>
+          <li>libnetfilter_queue packet engine on queue 100</li>
+          <li>TCP fragmentation, fake low-TTL packets, HTTP and SNI splitting</li>
+          <li>DNS interception with upstream and fallback resolvers</li>
+          <li>QUIC/HTTP3 awareness</li>
+          <li>GTK4 + libadwaita interface with a StatusNotifierItem tray</li>
+          <li>Autostart and headless / tray-only modes</li>
+        </ul>
+      </description>
+    </release>
+  </releases>
+</component>

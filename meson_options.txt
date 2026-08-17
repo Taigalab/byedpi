@@ -1,0 +1,5 @@
+# SPDX-License-Identifier: Apache-2.0
+option('gui',
+  type : 'boolean',
+  value : true,
+  description : 'Build the GTK4 + libadwaita graphical interface and tray')
